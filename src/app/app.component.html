@@ -103,6 +103,14 @@
         <div *ngIf="RadioSelected == 2" class="input-group mb-3">
 
             <input [(ngModel)]="OtherLocation" placeholder="Enter a location" type="text" class="form-control" > 
+         
+          
+        </div>
+        <div *ngIf="RadioSelected == 2 && OtherLocationValid == false" class="input-group mb-3">
+
+            <div class="error-input"  align="left">
+                Please choose a location.
+              </div>
           
         </div>
       </div>
@@ -477,10 +485,10 @@
 
                     <div class="row" style="margin-bottom:5px;border:1px solid gainsboro;    padding-top: 15px;
                 padding-bottom: 15px;"*ngFor="let review of yelpReviews.reviews">
-                  <div class="col-md-1" align="center">
+                  <div class="col-md-2  col-xs-2" align="center">
                    <a target="_blank" [href]="review.url"> <img style="width: 50px;height:50px;border-radius:50px;"  [src]="review.user.image_url" alt=""></a>
                   </div>
-                  <div class="col-md-11" align="left" style="padding-left:0px!important;">
+                  <div class="col-md-10 col-xs-10" align="left" style="padding-left:0px!important;">
                    <a target="_blank" style="font-weight:500;" [href]="review.url"> {{review.user.name}} </a><br>
                    <span  style="color:orange;" *ngIf="review.rating == 1">&#9733;</span><span *ngIf="review.rating == 1">&#10032;	&#10032;	&#10032;	&#10032;</span>
                    <span  style="color:orange;" *ngIf="review.rating == 2">&#9733;&#9733;</span><span *ngIf="review.rating == 2">&#10032;	&#10032;	&#10032;</span>

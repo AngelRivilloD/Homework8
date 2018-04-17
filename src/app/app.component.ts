@@ -18,6 +18,7 @@ export class AppComponent {
   public RadioSelected: any = 1;
   public Keyword: any;
   public KeywordValid: any;
+  public OtherLocationValid: any;
 
   public latitude: any;
   public longitude: any;
@@ -297,14 +298,22 @@ public NoRecord:any;
 
   validate() {
 
+    if(this.Radius == ""){
+      this.Radius = 10;
+    }
+
+    this.Loading = 1;
+
     if (this.Keyword == undefined || this.Keyword == "") {
       this.KeywordValid = false;
+      this.Loading = 0;
     } else if(this.Keyword.trim() == 0){
       this.KeywordValid = false;
+      this.Loading = 0;
     }else{
 
       this.KeywordValid = true;
-      this.Loading = 1;
+     
 
       if (this.RadioSelected == 1) {
         this.serviceServive.getSearchCurrent(this.Keyword, this.actualLocation.lat, this.actualLocation.lon, this.Category, this.Radius).subscribe((response) => {
@@ -331,29 +340,37 @@ public NoRecord:any;
         })
       } else if (this.RadioSelected == 2) {
 
-        console.log(this.OtherLocation);
-        this.serviceServive.getSearch(this.Keyword, this.OtherLocation, this.Category, this.Radius).subscribe((response) => {
-          console.log(response);
+        if(this.OtherLocation == undefined){
+          this.OtherLocationValid = false;
           this.Loading = 0;
+        }else{
 
-          let data = JSON.parse(JSON.stringify(response));
-
-          if (data.status == "OK") {
-            this.JsonData = data.results;
-            this.ShowTable = 1;
-            this.NoRecord = 0;
-
-            if (data.next_page_token) {
-              this.nextToken = data.next_page_token;
-              this.thereIsNext = 1;
-            } else {
-              this.thereIsNext = 0;
+          this.OtherLocationValid = true;
+          console.log(this.OtherLocation);
+          this.serviceServive.getSearch(this.Keyword, this.OtherLocation, this.Category, this.Radius).subscribe((response) => {
+            console.log(response);
+            this.Loading = 0;
+  
+            let data = JSON.parse(JSON.stringify(response));
+  
+            if (data.status == "OK") {
+              this.JsonData = data.results;
+              this.ShowTable = 1;
+              this.NoRecord = 0;
+  
+              if (data.next_page_token) {
+                this.nextToken = data.next_page_token;
+                this.thereIsNext = 1;
+              } else {
+                this.thereIsNext = 0;
+              }
+            }else if (data.meta == 2){
+              this.NoRecord = 1;
+              this.ShowTable = 0;
             }
-          }else if (data.meta == 2){
-            this.NoRecord = 1;
-            this.ShowTable = 0;
-          }
-        })
+          })
+        }
+       
       }
     }
   }
