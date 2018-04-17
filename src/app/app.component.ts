@@ -252,6 +252,8 @@ public NoRecord:any;
     this.Radius = 10;
     this.Category = "Default";
     this.radioClicked(1);
+
+    this.ShowTable = 0;
   }
 
   setFavorite(row: any) {
