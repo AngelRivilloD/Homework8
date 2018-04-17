@@ -160,8 +160,8 @@
     </div>
 
    
- <div class="row" *ngIf="ShowDetails != 1 && ShowTable == 1">
-      <table class="table" style="overflow-x:scroll;">
+ <div class="row" style="overflow-x:scroll!important;"  *ngIf="ShowDetails != 1 && ShowTable == 1">
+      <table class="table">
         <thead>
           <tr align="left">
             <th scope="col">#</th>
@@ -205,8 +205,8 @@
     </div>
    
 
-    <div class="row" *ngIf="ShowDetails != 1 && ShowTable == 2">
-        <table class="table" style="overflow-x:scroll;">
+    <div class="row" style="overflow-x:scroll!important;" *ngIf="ShowDetails != 1 && ShowTable == 2">
+        <table class="table" >
           <thead>
             <tr align="left">
               <th scope="col">#</th>
@@ -218,7 +218,7 @@
               <th scope="col">Details</th>
             </tr>
           </thead>
-          <tbody *ngFor="let fila of Favorites ; let i = index">
+          <tbody  *ngFor="let fila of Favorites ; let i = index">
             <tr>
               <th scope="row">{{i +1 }}</th>
               <td>

@@ -93,4 +93,9 @@ agm-map{
         padding-left: 10px;
         padding-right: 10px;
     }
+
+    table{
+        width: 600px!important;
+        max-width: 600px!important;
+    }
   }
