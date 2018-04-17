@@ -1,20 +1,531 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <div style="text-align:center">
-  <h1>
-    Welcome to {{title}}!
-  </h1>
-  <img width="300" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAxOS4xLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjxzdmcgdmVyc2lvbj0iMS4xIiBpZD0iTGF5ZXJfMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeD0iMHB4IiB5PSIwcHgiDQoJIHZpZXdCb3g9IjAgMCAyNTAgMjUwIiBzdHlsZT0iZW5hYmxlLWJhY2tncm91bmQ6bmV3IDAgMCAyNTAgMjUwOyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+DQo8c3R5bGUgdHlwZT0idGV4dC9jc3MiPg0KCS5zdDB7ZmlsbDojREQwMDMxO30NCgkuc3Qxe2ZpbGw6I0MzMDAyRjt9DQoJLnN0MntmaWxsOiNGRkZGRkY7fQ0KPC9zdHlsZT4NCjxnPg0KCTxwb2x5Z29uIGNsYXNzPSJzdDAiIHBvaW50cz0iMTI1LDMwIDEyNSwzMCAxMjUsMzAgMzEuOSw2My4yIDQ2LjEsMTg2LjMgMTI1LDIzMCAxMjUsMjMwIDEyNSwyMzAgMjAzLjksMTg2LjMgMjE4LjEsNjMuMiAJIi8+DQoJPHBvbHlnb24gY2xhc3M9InN0MSIgcG9pbnRzPSIxMjUsMzAgMTI1LDUyLjIgMTI1LDUyLjEgMTI1LDE1My40IDEyNSwxNTMuNCAxMjUsMjMwIDEyNSwyMzAgMjAzLjksMTg2LjMgMjE4LjEsNjMuMiAxMjUsMzAgCSIvPg0KCTxwYXRoIGNsYXNzPSJzdDIiIGQ9Ik0xMjUsNTIuMUw2Ni44LDE4Mi42aDBoMjEuN2gwbDExLjctMjkuMmg0OS40bDExLjcsMjkuMmgwaDIxLjdoMEwxMjUsNTIuMUwxMjUsNTIuMUwxMjUsNTIuMUwxMjUsNTIuMQ0KCQlMMTI1LDUyLjF6IE0xNDIsMTM1LjRIMTA4bDE3LTQwLjlMMTQyLDEzNS40eiIvPg0KPC9nPg0KPC9zdmc+DQo=">
-</div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" href="https://github.com/angular/angular-cli/wiki">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" href="https://blog.angular.io//">Angular blog</a></h2>
-  </li>
-</ul>
 
+  <div class="figure1">
+    <div class="row">
+      <div class="col-md-2"></div>
+      <div class="col-md-8">
+        <p class="title">Travel and Entertainment Search</p>
+      </div>
+      <div class="col-md-2"></div>
+    </div>
+    <div class="row">
+      <div class="col-md-2"></div>
+      <div class="col-md-2" align="left">Keyword
+        <span style="color:red">*</span>
+      </div>
+      <div class="col-md-6">
+        <div class="input-group mb-3">
+
+
+          <input [(ngModel)]="Keyword" placeholder="" type="text" class="form-control">
+
+
+
+        </div>
+        <div class="error-input" *ngIf="KeywordValid == false" align="left">
+          Please choose a keywork.
+        </div>
+      </div>
+      <div class="col-md-2"></div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-2"></div>
+      <div class="col-md-2" align="left">Category</div>
+      <div class="col-md-6">
+        <select [(ngModel)]="Category" style="margin-bottom: 15px;" class="custom-select" id="inputGroupSelect01">
+          <option selected value="Default">Default</option>
+          <option value="Airport">Airport</option>
+          <option value="Amusement Park">Amusement Park</option>
+          <option value="Aquarium">Aquarium</option>
+          <option value="Art Gallery">Art Gallery</option>
+          <option value="Bakery">Bakery</option>
+          <option value="Bar">Bar</option>
+          <option value="Beauty Salon">Beauty Salon</option>
+          <option value="Bowling Alley">Bowling Alley</option>
+          <option value="Bus Station">Bus Station</option>
+          <option value="Cafe">Cafe</option>
+          <option value="Campground">Campground</option>
+          <option value="Car Rental">Car Rental</option>
+          <option value="Casino">Casino</option>
+          <option value="Lodging">Lodging</option>
+          <option value="Movie Theater">Movie Theater</option>
+          <option value="Museum">Museum</option>
+          <option value="Night Club">Night Club</option>
+          <option value="Park">Park</option>
+          <option value="Parking">Parking</option>
+          <option value="Retaurant">Retaurant</option>
+          <option value="Shopping Mall">Shopping Mall</option>
+          <option value="Stadium">Stadium</option>
+          <option value="Subway Station">Subway Station</option>
+          <option value="Taxi Stand">Taxi Stand</option>
+          <option value="Train Station">Train Station</option>
+          <option value="Transit Station">Transit Station</option>
+          <option value="Travel Agency">Travel Agency</option>
+          <option value="Zoo">Zoo</option>
+        </select>
+      </div>
+      <div class="col-md-2"></div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-2"></div>
+      <div class="col-md-2" align="left">Distance (miles)</div>
+      <div class="col-md-6">
+        <div class="input-group mb-3">
+          <input [(ngModel)]="Radius" type="text" class="form-control" placeholder="10" aria-label="Username" aria-describedby="basic-addon1">
+        </div>
+      </div>
+      <div class="col-md-2"></div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-2"></div>
+      <div class="col-md-2" align="left">From</div>
+      <div class="col-md-6" align="left">
+        <div class="form-check">
+          <input class="form-check-input" (click)="radioClicked(1)" type="radio" name="exampleRadios" id="exampleRadios1" value="option1"
+            checked>
+          <label class="form-check-label" for="exampleRadios1">
+            Current location
+          </label>
+        </div>
+        <div class="form-check" style="margin-bottom: 10px;">
+          <input class="form-check-input" (click)="radioClicked(2)" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+          <label class="form-check-label" for="exampleRadios2">
+            Other, please specify:
+          </label>
+        </div>
+        <div *ngIf="RadioSelected == 1" class="input-group mb-3">
+          <input disabled type="text" class="form-control" placeholder="Enter a location" aria-label="Username" aria-describedby="basic-addon1">
+        </div>
+        <div *ngIf="RadioSelected == 2" class="input-group mb-3">
+
+            <input [(ngModel)]="OtherLocation" placeholder="Enter a location" type="text" class="form-control" > 
+          
+        </div>
+      </div>
+      <div class="col-md-2"></div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-12">
+        <button type="button" [disabled]="actualLocation == 0" (click)="validate()" class="btn btn-primary">Search</button>
+        <button (click)="clearSearch()" style="border: 1px solid #cacaca;" type="button" class="btn btn-light">Clear</button>
+      </div>
+    </div>
+
+
+  </div>
+  <div class="figure2">
+    <div *ngIf="Loading == 1" class="row" style="margin-top:30px;margin-bottom:30px;">
+      <div class="progress" style="width:100%!important;">
+        <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"
+          style="width:50%">
+        </div>
+      </div>
+    </div>
+
+
+    <div class="row" align="center" style="margin-bottom:20px;">
+      <div class="col-md-4"></div>
+      <div class="col-md-4"  align="center">
+          <ul class="nav nav-pills">
+              <li class="nav-item">
+                <a class="nav-link active" *ngIf="ShowTable == 1"  href="#">Results</a>
+                <a class="nav-link" *ngIf="ShowTable != 1" (click)="ShowTable = 1"  href="#">Results</a>
+              </li>
+              <li class="nav-item">
+                
+                <a class="nav-link active" *ngIf="ShowTable == 2"  href="#">Favorites</a>
+                <a class="nav-link" *ngIf="ShowTable != 2" (click)="ShowTable = 2"  href="#">Favorites</a>
+              </li>
+            </ul>
+      </div>
+      <div class="col-md-4"></div>
+      <div class="col-md-12" style="margin-top:20px;">
+        <div *ngIf="NoRecord == 1" style="width:100%!important;" class="alert alert-warning" role="alert">
+          No records
+        </div>
+      </div>
+    </div>
+
+   
+ <div class="row" *ngIf="ShowDetails != 1 && ShowTable == 1">
+      <table class="table" style="overflow-x:scroll;">
+        <thead>
+          <tr align="left">
+            <th scope="col">#</th>
+            <th scope="col">Category</th>
+            <th scope="col">Name</th>
+            <th scope="col">Address</th>
+
+            <th scope="col">Favorite</th>
+            <th scope="col">Details</th>
+          </tr>
+        </thead>
+        <tbody *ngFor="let fila of JsonData; let i = index">
+          <tr>
+            <th scope="row">{{i +1 }}</th>
+            <td>
+              <img [src]="fila.icon" alt="">
+            </td>
+            <td align="left">{{fila.name}}</td>
+            <td align="left">{{fila.vicinity}}</td>
+            <td>
+              <button type="button"  (click)="setFavorite(fila)" class="btn btn-default btn-sm">
+                  &#10025;
+              </button>
+            </td>
+            <td>
+              <button (click)="detailsClicked(fila)" type="button" class="btn btn-default btn-sm">
+                Details
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="row">
+        <div class="col-md-12" align="center">
+
+      <button type="button" (click)="callPrevious()" class="btn">Previous</button>
+      <button *ngIf="thereIsNext == 1" type="button" (click)="callNext()" class="btn">Next</button>
+        </div>
+      </div>
+        
+    </div>
+   
+
+    <div class="row" *ngIf="ShowDetails != 1 && ShowTable == 2">
+        <table class="table" style="overflow-x:scroll;">
+          <thead>
+            <tr align="left">
+              <th scope="col">#</th>
+              <th scope="col">Category</th>
+              <th scope="col">Name</th>
+              <th scope="col">Address</th>
+  
+              <th scope="col">Favorite</th>
+              <th scope="col">Details</th>
+            </tr>
+          </thead>
+          <tbody *ngFor="let fila of Favorites ; let i = index">
+            <tr>
+              <th scope="row">{{i +1 }}</th>
+              <td>
+                <img [src]="fila.icon" alt="">
+              </td>
+              <td align="left">{{fila.name}}</td>
+              <td align="left">{{fila.vicinity}}</td>
+              <td>
+                <button type="button" (click)="deleteFavorite(fila)" class="btn btn-default btn-sm">
+                  Delete
+                </button>
+              </td>
+              <td>
+                <button (click)="detailsClicked()" type="button" class="btn btn-default btn-sm">
+                  <span class="glyphicon glyphicon-star" aria-hidden="true"></span> Details
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="row">
+          <div class="col-md-12" align="center">
+  
+        <button type="button" (click)="callPrevious()" class="btn">Previous</button>
+        <button *ngIf="thereIsNext == 1" type="button" (click)="callNext()" class="btn">Next</button>
+          </div>
+        </div>
+          
+      </div>
+
+    
+
+    <div class="row" *ngIf="ShowDetails == 1">
+      
+            <div class="col-md-1 col-sm-3 col-xs-3" align="left">
+                <button style="font-size: 18px;
+                padding-top: 0px;
+                padding-bottom: 0px;" type="button" class="btn btn-default btn-sm" (click)="ShowDetails = 0">
+                    &#8592; List
+                  </button>
+            </div>
+            <div class="col-md-9 col-sm-6 col-xs-6"></div>
+            <div class="col-md-2 col-sm-3 col-xs-3" align="right">
+                <button (click)="setFavorite(0)" style="font-size: 22px;
+                padding-top: 0px;
+                padding-bottom: 0px;" type="button" class="btn btn-default btn-sm">
+                    &#10025;
+                  </button>
+                      <a href="https://twitter.com/intent/tweet?text=Check%20out%20{{RowDetails.result.name}}%20located%20at%20{{RowDetails.result.formatted_address}}.%20Website:%20{{RowDetails.result.url}}%20#TravelAndEntertainmentSearch" >
+                        <img height="35px;" src="http://cs-server.usc.edu:45678/hw/hw8/images/Twitter.png" alt=""></a>
+                    
+            </div>
+            
+
+            <div align="right">
+                <ul class="nav nav-tabs" style="
+                margin-bottom: 10px;margin-top:10px;">
+                  <li class="nav-item" style="cursor:pointer;">
+                    <a class="nav-link" *ngIf="DetailsTab != 1" (click)="DetailsTab = 1">Info</a>
+                    <a class="nav-link active" *ngIf="DetailsTab == 1">Info</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" *ngIf="DetailsTab != 2" (click)="DetailsTab = 2">Photos</a>
+                    <a class="nav-link active" *ngIf="DetailsTab == 2" >Photos</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" *ngIf="DetailsTab != 3" (click)="DetailsTab = 3;showMap();">Map</a>
+                    <a class="nav-link active" *ngIf="DetailsTab == 3">Map</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" *ngIf="DetailsTab != 4" (click)="DetailsTab = 4">Reviews</a>
+                    <a class="nav-link active" *ngIf="DetailsTab == 4">Reviews</a>
+                  </li>
+                </ul>
+            </div>
+      
+      <table class="table table-striped">
+         
+
+        <tbody *ngIf="DetailsTab == 1">
+            <tr align="left">
+                <th scope="row">Name</th>
+                <td>{{RowDetails.result.name}}</td>
+              </tr>
+          <tr align="left">
+            <th scope="row">Address</th>
+            <td>{{RowDetails.result.formatted_address}}</td>
+          </tr>
+          <tr align="left">
+            <th scope="row">Phone Number</th>
+            <td>{{RowDetails.result.formatted_phone_number}}</td>
+          </tr>
+          <tr align="left">
+            <th scope="row">Price Level</th>
+            <td>
+              <span *ngIf="RowDetails.result.price_level == 1">$</span>
+              <span *ngIf="RowDetails.result.price_level == 2">$$</span>
+              <span *ngIf="RowDetails.result.price_level == 3">$$$</span>
+            </td>
+          </tr>
+          <tr align="left">
+            <th scope="row">Rating</th>
+            <td>{{RowDetails.result.rating}}
+
+                <span  style="color:orange;" *ngIf="RowDetails.result.rating <= 1">&#9733;</span><span *ngIf="RowDetails.result.rating <= 1">&#10032;	&#10032;	&#10032;	&#10032;</span>
+                <span  style="color:orange;" *ngIf="RowDetails.result.rating > 1 && RowDetails.result.rating <= 2">&#9733;&#9733;</span><span *ngIf="RowDetails.result.rating > 1 && RowDetails.result.rating <= 2">&#10032;	&#10032;	&#10032;</span>
+                <span  style="color:orange;" *ngIf="RowDetails.result.rating > 2 && RowDetails.result.rating <= 3">&#9733;&#9733;&#9733;</span><span *ngIf="RowDetails.result.rating > 2 && RowDetails.result.rating <= 3">&#10032;	&#10032;</span>
+                <span  style="color:orange;" *ngIf="RowDetails.result.rating > 3 && RowDetails.result.rating <= 4">&#9733;&#9733;&#9733;&#9733;</span><span *ngIf="RowDetails.result.rating > 3 && RowDetails.result.rating <= 4">&#10032;</span>
+                <span  style="color:orange;" *ngIf="RowDetails.result.rating > 4 && RowDetails.result.rating <= 5">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+
+
+            </td>
+          </tr>
+          <tr align="left">
+            <th scope="row">Google Place</th>
+            <td><a target="_blank" [href]="RowDetails.result.url">{{RowDetails.result.url}}</a></td>
+          </tr>
+          <tr align="left">
+            <th scope="row">Website</th>
+            <td>{{RowDetails.result.website}}</td>
+          </tr>
+          <tr align="left" *ngIf="NoHours == 0">
+              <th scope="row">Hours</th>
+              <td>
+                <span *ngIf="RowDetails.result.opening_hours.open_now == true">Open</span>
+                <span *ngIf="RowDetails.result.opening_hours.open_now == false">Close</span>-
+              <a href="#" (click)="openHours(RowDetails.result.opening_hours)" data-toggle="modal" data-target="#exampleModal"> Daily open hours</a></td>
+            </tr>
+        </tbody>
+
+        <tbody class="photosTab" *ngIf="DetailsTab == 2">
+            <div class="row">
+              <div class="col-md-3" *ngFor="let photo of RowDetails.result.photos">
+                <a target="_blank" href="https://maps.googleapis.com/maps/api/place/photo?maxwidth=1600&photoreference={{photo.photo_reference}}&key=AIzaSyCsCBbEkLxSGhKjAsW4S0Q3LnNtvuxlliA">
+                    <img src="https://maps.googleapis.com/maps/api/place/photo?maxwidth=1600&photoreference={{photo.photo_reference}}&key=AIzaSyCsCBbEkLxSGhKjAsW4S0Q3LnNtvuxlliA" alt="">
+                </a>
+                
+              </div>
+            </div>
+           
+          </tbody>
+
+
+          <tbody class="photosTab" *ngIf="DetailsTab == 3">
+            
+              <div class="row">
+                <div class="col-md-4" align="left">
+                  <label for="">From</label>
+                    <input [(ngModel)]="From" placeholder="Your location" autocorrect="off" autocapitalize="off"
+                    spellcheck="off" type="text" class="form-control" #search [formControl]="searchControl">
+            
+                </div>
+                <div class="col-md-4" align="left">
+                    <label for="">To</label>
+                    <input [(ngModel)]="To" disabled  type="text" class="form-control">
+                </div>
+                <div class="col-md-2" align="left">
+                  <label for="">Travel Mode</label>
+                  <select [(ngModel)]="TravelMode" style="margin-bottom: 15px;" class="custom-select" id="inputGroupSelect01">
+                      <option selected value="DRIVING">Driving</option>
+                      <option value="BICYCLING">Bicycling</option>
+                      <option value="TRANSIT">Transit</option>
+                      <option value="WALKING">Walking</option>
+                    </select>
+                </div>
+                <div class="col-md-2">
+                    <button (click)="calculateRoute()" style="margin-top: 32px;" type="button" class="btn btn-primary">Get Directions</button>
+                </div>
+               
+                
+              </div>
+              <div class="row">
+                <div class="col-md-12">
+
+
+
+                    <ul class="nav nav-tabs" id="myTab" role="tablist">
+                        <li class="nav-item">
+                          <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">
+                          <img  style="height:35px!important;width:35px!important;" src="http://cs-server.usc.edu:45678/hw/hw8/images/Map.png" alt="">
+                          </a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">
+                              <img style="height:35px!important;width:35px!important;" src="http://cs-server.usc.edu:45678/hw/hw8/images/Pegman.png" alt="">
+                          </a>
+                          
+                        </li>
+                      </ul>
+                      <!-- <div class="tab-content" id="myTabContent">
+                        <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">..1.</div>
+                        <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">..2.</div>
+                      </div> -->
+
+                </div>
+                
+              </div>
+              <div class="row">
+                  <!-- <agm-map *ngIf="streetViewMode == 0" [latitude]="latitude" [longitude]="longitude"  [scrollwheel]="false" [zoom]="zoom" (mapClick)="clickOnMap($event)">
+                      <agm-marker [latitude]="latitude" [longitude]="longitude"></agm-marker>
+                  </agm-map> -->
+
+
+                  <div #map2 id="map2" ></div>
+                  <div #pano id="pano" ></div>
+              </div>
+              <div class="row">
+                  <div class="col-md-12">
+                      <div id="right-panel"></div>
+                    </div>
+              </div>
+             
+            </tbody>
+
+
+            <tbody *ngIf="DetailsTab == 4">
+                <div class="row" style="margin-bottom:20px;">
+                  <div class="col-md-2">
+                      <select class="custom-select" (selectionChange)="selectReview($event)"  [(ngModel)]="selectedReview" >
+                          <option  selected value="0">Google reviews</option>
+                          <option  value="1">Yelp reviews</option>
+                        </select>
+
+                       
+                  </div>
+                  <div class="col-md-2">
+                      <select class="custom-select">
+                          <option selected>Default Order</option>
+                          <option value="1">Highest Rating</option>
+                          <option value="2">Lowest Rating</option>
+                          <option value="3">Most Recent</option>
+                          <option value="4">Least Recent</option>
+                        </select>
+                  </div>
+                  <div class="col-md-8">
+
+                  </div>
+                </div>
+                <div *ngIf="selectedReview == 0" >
+
+              
+                <div class="row" style="margin-bottom:5px;border:1px solid gainsboro;padding-top: 15px;
+                padding-bottom: 15px;"*ngFor="let review of RowDetails.result.reviews">
+                  <div class="col-md-2  col-xs-2" align="center">
+                   <a target="_blank" [href]="review.author_url"> <img style="width: 50px;height:50px;"  [src]="review.profile_photo_url" alt=""></a>
+                  </div>
+                  <div class="col-md-10  col-xs-10" align="left" style="padding-left:0px!important;">
+                   <a target="_blank" style="font-weight:500;" [href]="review.author_url"> {{review.author_name}} </a><br>
+                   <span  style="color:orange;" *ngIf="review.rating == 1">&#9733;</span><span *ngIf="review.rating == 1">&#10032;	&#10032;	&#10032;	&#10032;</span>
+                   <span  style="color:orange;" *ngIf="review.rating == 2">&#9733;&#9733;</span><span *ngIf="review.rating == 2">&#10032;	&#10032;	&#10032;</span>
+                   <span  style="color:orange;" *ngIf="review.rating == 3">&#9733;&#9733;&#9733;</span><span *ngIf="review.rating == 3">&#10032;	&#10032;</span>
+                   <span  style="color:orange;" *ngIf="review.rating == 4">&#9733;&#9733;&#9733;&#9733;</span><span *ngIf="review.rating == 4">&#10032;</span>
+                   <span  style="color:orange;" *ngIf="review.rating == 5">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+                    {{review.relative_time_description}} <br>
+                   <span style="font-size:13px;"> {{review.text}}</span>
+                  </div>
+                </div>
+              </div>
+                <div class="row" *ngIf="selectedReview == 1">
+                  <div *ngIf="yelpReviews == 0" style="width:100%!important;" class="alert alert-warning" role="alert">
+                    No records
+                  </div>
+                  <div *ngIf="yelpReviews != 0" >
+
+                    <div class="row" style="margin-bottom:5px;border:1px solid gainsboro;    padding-top: 15px;
+                padding-bottom: 15px;"*ngFor="let review of yelpReviews.reviews">
+                  <div class="col-md-1" align="center">
+                   <a target="_blank" [href]="review.url"> <img style="width: 50px;height:50px;border-radius:50px;"  [src]="review.user.image_url" alt=""></a>
+                  </div>
+                  <div class="col-md-11" align="left" style="padding-left:0px!important;">
+                   <a target="_blank" style="font-weight:500;" [href]="review.url"> {{review.user.name}} </a><br>
+                   <span  style="color:orange;" *ngIf="review.rating == 1">&#9733;</span><span *ngIf="review.rating == 1">&#10032;	&#10032;	&#10032;	&#10032;</span>
+                   <span  style="color:orange;" *ngIf="review.rating == 2">&#9733;&#9733;</span><span *ngIf="review.rating == 2">&#10032;	&#10032;	&#10032;</span>
+                   <span  style="color:orange;" *ngIf="review.rating == 3">&#9733;&#9733;&#9733;</span><span *ngIf="review.rating == 3">&#10032;	&#10032;</span>
+                   <span  style="color:orange;" *ngIf="review.rating == 4">&#9733;&#9733;&#9733;&#9733;</span><span *ngIf="review.rating == 4">&#10032;</span>
+                   <span  style="color:orange;" *ngIf="review.rating == 5">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+                    {{review.time_created}} <br>
+                   <span style="font-size:13px;"> {{review.text}}</span>
+                  </div>
+                </div>
+
+
+                  </div>
+                </div>
+              </tbody>
+      </table>
+    </div>
+  </div>
+
+
+
+
+
+
+</div>
+
+
+<!-- Modal Open Hours-->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Open hours</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p *ngFor="let hour of Hours">
+           {{ hour }}
+          </p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>

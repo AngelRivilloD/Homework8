@@ -1,0 +1,96 @@
+.figure1{
+    margin-top: 10px;
+    margin-left: 20%;
+    margin-right: 20%;
+    background-color: whitesmoke;
+    border:1px solid #dedede;
+    border-radius: 5px;
+    padding-bottom: 50px;
+}
+
+.figure2{
+    margin-top: 10px;
+    margin-left: 10%;
+    margin-right: 10%;
+    padding-bottom: 50px;
+}
+
+#right-panel select, #right-panel input {
+    font-size: 15px;
+  }
+
+  #right-panel select {
+    width: 100%;
+  }
+
+  #right-panel i {
+    font-size: 12px;
+  }
+  #right-panel {
+    height: 100%;
+    float: right;
+    width: 100%;
+    overflow: auto;
+  }
+  
+#map2, #pano {
+    float: left;
+    height: 400px;
+    width: 1050%;
+  }
+
+.photosTab img{
+    width:100%!important;
+    height:200px;
+    border: 1px solid #dedede;
+    padding: 2px;
+    margin-bottom: 8px;
+}
+
+table tr:hover{
+    background-color: whitesmoke;
+}
+
+table img{
+    height: 20px;
+}
+
+.figure1 input{
+    height: 28px;
+    font-size: 13px;
+    padding-top: 3px;
+}
+
+.figure1 select{
+    height: 28px;
+    font-size: 13px;
+    padding-top: 3px;
+}
+
+.figure1 .title{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-weight: 500;
+    font-size: 20px;
+}
+
+.error-input{
+    margin-top: -15px;
+    font-size: 12px;
+    color: red;
+    margin-bottom: 2px;
+}
+
+agm-map{
+    height: 400px;
+    width: 100%;
+}
+
+@media (max-width: 700px) {
+    .figure1{
+        margin-left: 5%;
+        margin-right: 5%;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+  }
